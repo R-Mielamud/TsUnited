@@ -9,6 +9,10 @@ export const resolveProject = (baseDir: string, project: Project): Project => {
 };
 
 export const resolveConfig = (baseDir: string, config: Config): Config => {
+	if (config.cwd) {
+		baseDir = path.resolve(baseDir, config.cwd);
+	}
+
 	return {
 		...config,
 		rootProject: resolveProject(baseDir, config.rootProject),

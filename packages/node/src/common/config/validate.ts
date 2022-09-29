@@ -23,6 +23,10 @@ export const configSchema: Schema = {
 	type: "object",
 	required: true,
 	properties: {
+		cwd: {
+			type: "string",
+			minLength: 1,
+		},
 		unitedFolder: {
 			type: "string",
 			regex: /^[-a-zA-Z0-9_.]+$/,
