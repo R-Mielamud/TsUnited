@@ -1,14 +1,19 @@
 import path from "path";
 
-import { Config, validateConfig } from "..";
-import { findConfigFile } from "./find";
+import {
+	Config,
+	validateConfig,
+	findConfigFile,
+	ConfigNotFoundError,
+} from "..";
+
 import { resolveConfig } from "./resolve";
 
 export const getConfig = (): Config => {
 	const configPath = findConfigFile();
 
 	if (!configPath) {
-		throw new Error("Config was not found.");
+		throw new ConfigNotFoundError();
 	}
 
 	const configRelative: Config = require(configPath);
@@ -19,6 +24,5 @@ export const getConfig = (): Config => {
 	return config;
 };
 
-export * from "./resolve";
-export * from "./find";
 export * from "./validate";
+export * from "./resolve";

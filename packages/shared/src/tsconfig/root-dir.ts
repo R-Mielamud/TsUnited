@@ -1,6 +1,12 @@
 import path from "path";
-import { isParent, Project, Tsconfig } from "~/common";
-import { ValidationError } from "~/common/exceptions";
+
+import {
+	isParent,
+	BaseProject,
+	Tsconfig,
+	RootDirOutsideProjectError,
+	RootDirRequiredError,
+} from "..";
 
 export const commonPart = (path1: string, path2: string): string => {
 	let common = "";
@@ -33,7 +39,7 @@ export const getCodeDir = async (
 
 export const getRootDir = async (
 	tsconfig: Tsconfig,
-	project: Project
+	project: BaseProject
 ): Promise<string> => {
 	const rootDirSet = Boolean(tsconfig.options.rootDir);
 
@@ -46,27 +52,19 @@ export const getRootDir = async (
 
 		if (!rootDirInsideProject) {
 			if (!codeDir) {
-				throw new ValidationError(
-					`compilerOptions.rootDir in ${project.name}'s tsconfig is set to directory outside the project's directory. Also, none of your project's folders contain code, so it's impossible to detemrine rootDir automatically. Please add some code or set rootDir manually in tsconfig.`
-				);
+				throw new RootDirOutsideProjectError(project.name);
 			}
 
-			console.warn(
-				`compilerOptions.rootDir in ${project.name}'s tsconfig is set to directory outside the project's directory. It will be overwriten and set to ${codeDir}.`
-			);
+			new RootDirOutsideProjectError(project.name, codeDir).warn();
 
 			return codeDir;
 		}
 
 		if (!codeDir) {
-			throw new ValidationError(
-				`compilerOptions.rootDir in ${project.name}'s tsconfig is not set. Also, none of your project's folders contain code, so it's impossible to determine rootDir automatically. Please add some code or set rootDir manually in tsconfig.`
-			);
+			throw new RootDirRequiredError(project.name);
 		}
 
-		console.warn(
-			`compilerOptions.rootDir in ${project.name} tsconfig is not set. It will be set to ${codeDir}.`
-		);
+		new RootDirRequiredError(project.name, codeDir).warn();
 
 		return codeDir;
 	}

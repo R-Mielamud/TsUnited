@@ -1,0 +1,14 @@
+{
+	"name": "@ts-united/shared",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Roman Melamud",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/node": "18.7.23",
+		"typescript": "4.8.3"
+	}
+}

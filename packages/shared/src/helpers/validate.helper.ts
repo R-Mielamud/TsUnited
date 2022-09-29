@@ -9,7 +9,7 @@ import {
 	ObjectSchema,
 	Schema,
 	StringSchema,
-} from "../types";
+} from "..";
 
 const error = (name: string, message: string): never => {
 	throw new ValidationError(name + " " + message);
@@ -35,12 +35,16 @@ export const validateRequired = (
 	name: string,
 	object: any,
 	schema: AnySchema
-) => {
-	if (!schema.required && blank(object)) {
-		return;
+): boolean => {
+	if (!schema.required) {
+		return true;
 	}
 
-	error(name, "is required");
+	if (blank(object)) {
+		error(name, "is required");
+	}
+
+	return false;
 };
 
 export const validateType = (
@@ -130,7 +134,12 @@ export const validateObject = (
 };
 
 export const validate = (name: string, object: any, schema: Schema): void => {
-	validateRequired(name, object, schema);
+	const bypass = validateRequired(name, object, schema);
+
+	if (bypass) {
+		return;
+	}
+
 	validateType(name, object, schema.type);
 
 	switch (schema.type) {

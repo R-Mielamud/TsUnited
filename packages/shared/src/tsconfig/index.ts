@@ -1,27 +1,31 @@
-import { Project, Tsconfig } from "~/common";
+import { BaseProject, Tsconfig, TsconfigNotFoundError } from "..";
 
 import { getTsconfigPath, loadTsconfig, parseTsconfig } from "./parse";
 import { validateCompilerOptions } from "./validate";
 
 export const getTsconfig = async (
-	project: Project,
+	project: BaseProject,
+	outDirImportant: boolean = true,
 	overrideOutDir?: string
 ): Promise<Tsconfig> => {
 	const path = getTsconfigPath(project);
 
 	if (!path) {
-		throw new Error("Tsconfig was not found.");
+		throw new TsconfigNotFoundError(project.name);
 	}
 
 	const config = loadTsconfig(path);
 	const { options, fileNames, errors } = parseTsconfig(config, project);
 	const tsconfig: Tsconfig = { options, fileNames, errors, path };
 
-	tsconfig.options = await validateCompilerOptions(
+	tsconfig.options = await validateCompilerOptions({
 		tsconfig,
 		project,
-		overrideOutDir
-	);
+		outDir: {
+			important: outDirImportant,
+			override: overrideOutDir,
+		},
+	});
 
 	return tsconfig;
 };

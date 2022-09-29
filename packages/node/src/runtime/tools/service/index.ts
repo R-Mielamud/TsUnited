@@ -1,6 +1,11 @@
 import { create as createTsNodeService, Service } from "ts-node";
 
-import { Config, ProjectTools, isParent } from "~/common";
+import {
+	Config,
+	ProjectTools,
+	isParent,
+	NoProjectContainsFileError,
+} from "~/common";
 
 export const createRootService = (
 	config: Config,
@@ -17,7 +22,7 @@ export const createRootService = (
 			}
 		}
 
-		throw new Error(`No project contains the file ${fileName}`);
+		throw new NoProjectContainsFileError(fileName);
 	};
 
 	const service = createTsNodeService({ cwd: config.rootProject.path });

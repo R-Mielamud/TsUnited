@@ -5,7 +5,7 @@ import { createMatchPath, MatchPath } from "tsconfig-paths";
 
 import { Config, isParent, Tsconfig, DEFAULT_UNITED_FOLDER } from "~/common";
 
-import { replacePaths } from "./regex";
+import { replacePaths } from "./import-regex";
 import { traverseOut } from "./traverse";
 
 export const replaceOutPaths = (
@@ -70,6 +70,10 @@ export const replaceAliases = async (config: Config): Promise<void> => {
 					options: { outDir, declarationDir, baseUrl },
 				} = tsconfig;
 
+				if (!baseUrl) {
+					return;
+				}
+
 				const files = await traverseOut(
 					outDir as string,
 					declarationDir,
@@ -77,7 +81,7 @@ export const replaceAliases = async (config: Config): Promise<void> => {
 				);
 
 				const outPaths = replaceOutPaths(tsconfig, config);
-				const resolver = createMatchPath(baseUrl as string, outPaths);
+				const resolver = createMatchPath(baseUrl, outPaths);
 
 				for (const file of files.reverse()) {
 					await replaceInFile(file, resolver);
@@ -88,4 +92,4 @@ export const replaceAliases = async (config: Config): Promise<void> => {
 };
 
 export * from "./traverse";
-export * from "./regex";
+export * from "./import-regex";

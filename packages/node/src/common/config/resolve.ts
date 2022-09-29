@@ -1,5 +1,5 @@
 import path from "path";
-import { Config, Project } from "..";
+import { Config, Project } from "~/common";
 
 export const resolveProject = (baseDir: string, project: Project): Project => {
 	return {

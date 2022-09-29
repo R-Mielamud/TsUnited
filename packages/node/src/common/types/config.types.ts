@@ -1,8 +1,6 @@
-import { Tsconfig } from "./typescript.types";
+import { Tsconfig, BaseProject } from "~/common";
 
-export interface Project {
-	name: string;
-	path: string;
+export interface Project extends BaseProject {
 	tsconfig: Tsconfig;
 }
 

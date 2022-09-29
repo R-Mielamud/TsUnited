@@ -1,12 +1,8 @@
 import ts from "typescript";
 
-import { isParent, Project } from "~/common";
+import { isParent, Project, SUPPRESSED_DIAGNOSTICS } from "~/common";
 
 import { filterDiagnostics } from "./diagnostics";
-
-const SUPPRESSED_DIAGNOSTICS = [
-	6059, // 'rootDir' is expected to contain all source files.
-];
 
 export const compileProject = (project: Project): void => {
 	console.info(`Compiling ${project.name}\n`);

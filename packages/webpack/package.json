@@ -1,8 +1,8 @@
 {
-	"name": "@ts-united/node",
+	"name": "@ts-united/webpack",
 	"version": "1.0.0",
 	"description": "",
-	"main": "dist/runtime/index.js",
+	"main": "dist/index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "tsc && tsc-alias"
@@ -10,13 +10,15 @@
 	"author": "Roman Melamud",
 	"license": "MIT",
 	"dependencies": {
-		"ts-node": "latest",
+		"ts-loader": "latest",
 		"tsconfig-paths": "latest"
 	},
 	"peerDependencies": {
-		"typescript": "*"
+		"typescript": "*",
+		"webpack": "^5.0.0"
 	},
 	"devDependencies": {
+		"@types/webpack": "5.28.0",
 		"tsc-alias": "1.7.0",
 		"typescript": "4.8.3"
 	}

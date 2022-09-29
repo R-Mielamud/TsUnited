@@ -1,4 +1,9 @@
-import { isParent, ProjectTools, Resolver } from "~/common";
+import {
+	isParent,
+	NoProjectContainsFileError,
+	ProjectTools,
+	Resolver,
+} from "~/common";
 
 export const createRootResolver = (projectTools: ProjectTools[]): Resolver => {
 	return (fileName, from) => {
@@ -12,7 +17,7 @@ export const createRootResolver = (projectTools: ProjectTools[]): Resolver => {
 			}
 		}
 
-		throw new Error(`No project contains the file ${fileName}`);
+		throw new NoProjectContainsFileError(fileName);
 	};
 };
 

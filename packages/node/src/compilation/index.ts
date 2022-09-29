@@ -1,9 +1,9 @@
 import path from "path";
 
-import { DEFAULT_UNITED_FOLDER, getConfig } from "~/common";
+import { DEFAULT_UNITED_FOLDER, getConfig, getTsconfig } from "~/common";
 import { replaceAliases } from "./paths";
 
-import { compileProject, getTsconfig } from "./typescript";
+import { compileProject } from "./typescript";
 
 export const compile = async (): Promise<void> => {
 	const config = getConfig();
@@ -18,7 +18,7 @@ export const compile = async (): Promise<void> => {
 
 	for (const project of config.relatedProjects) {
 		const outDir = path.resolve(relatedOutBase, project.name);
-		project.tsconfig = await getTsconfig(project, outDir);
+		project.tsconfig = await getTsconfig(project, true, outDir);
 
 		compileProject(project);
 	}

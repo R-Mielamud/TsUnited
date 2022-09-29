@@ -1,8 +1,8 @@
 import ts from "typescript";
 
-import { Project } from "~/common";
+import { BaseProject } from "..";
 
-export const getTsconfigPath = (project: Project): string | undefined => {
+export const getTsconfigPath = (project: BaseProject): string | undefined => {
 	return ts.findConfigFile(project.path, ts.sys.fileExists);
 };
 
@@ -14,7 +14,7 @@ export const loadTsconfig = (tsconfigPath: string): any => {
 
 export const parseTsconfig = (
 	config: any,
-	project: Project
+	project: BaseProject
 ): ts.ParsedCommandLine => {
 	const { options, fileNames, errors } = ts.parseJsonConfigFileContent(
 		config,

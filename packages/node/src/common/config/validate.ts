@@ -1,5 +1,5 @@
-import { validate } from "../helpers";
-import { Config, Schema } from "../types";
+import { validate, Schema } from "..";
+import { Config } from "../types";
 
 export const projectSchema: Schema = {
 	type: "object",
@@ -21,6 +21,7 @@ export const projectSchema: Schema = {
 
 export const configSchema: Schema = {
 	type: "object",
+	required: true,
 	properties: {
 		unitedFolder: {
 			type: "string",
@@ -37,5 +38,6 @@ export const configSchema: Schema = {
 
 export const validateConfig = (config: any): config is Config => {
 	validate("config", config, configSchema);
+
 	return true;
 };
