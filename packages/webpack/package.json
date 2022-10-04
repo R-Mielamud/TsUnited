@@ -7,6 +7,11 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "tsc && tsc-alias"
 	},
+	"files": [
+		"dist/**",
+		"package.json",
+		"tsconfig.json"
+	],
 	"author": "Roman Melamud",
 	"license": "MIT",
 	"dependencies": {

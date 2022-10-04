@@ -16,8 +16,10 @@ export const resolveConfig = (baseDir: string, config: Config): Config => {
 	return {
 		...config,
 		rootProject: resolveProject(baseDir, config.rootProject),
-		relatedProjects: config.relatedProjects.map((project) =>
-			resolveProject(baseDir, project)
-		),
+		relatedProjects: config.relatedProjects
+			? config.relatedProjects.map((project) =>
+					resolveProject(baseDir, project)
+			  )
+			: [],
 	};
 };

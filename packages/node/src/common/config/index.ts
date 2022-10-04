@@ -16,12 +16,11 @@ export const getConfig = (): Config => {
 		throw new ConfigNotFoundError();
 	}
 
-	const configRelative: Config = require(configPath);
-	const config = resolveConfig(path.dirname(configPath), configRelative);
+	const rawConfig = require(configPath);
 
-	validateConfig(config);
+	validateConfig(rawConfig);
 
-	return config;
+	return resolveConfig(path.dirname(configPath), rawConfig);
 };
 
 export * from "./validate";

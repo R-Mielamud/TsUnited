@@ -31,16 +31,18 @@ const blank = (object: any): object is null | undefined => {
 	return object === null || object === undefined;
 };
 
-export const validateRequired = (
+export const shouldBypass = (
 	name: string,
 	object: any,
 	schema: AnySchema
 ): boolean => {
-	if (!schema.required) {
+	const isBlank = blank(object);
+
+	if (!schema.required && isBlank) {
 		return true;
 	}
 
-	if (blank(object)) {
+	if (isBlank) {
 		error(name, "is required");
 	}
 
@@ -134,7 +136,7 @@ export const validateObject = (
 };
 
 export const validate = (name: string, object: any, schema: Schema): void => {
-	const bypass = validateRequired(name, object, schema);
+	const bypass = shouldBypass(name, object, schema);
 
 	if (bypass) {
 		return;

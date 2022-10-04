@@ -34,7 +34,6 @@ export const configSchema: Schema = {
 		rootProject: projectSchema,
 		relatedProjects: {
 			type: "array",
-			required: true,
 			items: projectSchema,
 		},
 	},

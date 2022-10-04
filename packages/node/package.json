@@ -3,10 +3,20 @@
 	"version": "1.0.0",
 	"description": "",
 	"main": "dist/runtime/index.js",
+	"bin": {
+		"tsu-node": "./dist/exposed-bin/tsu-node.js",
+		"tsu-node-compile": "./dist/exposed-bin/tsu-node-compile.js"
+	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "tsc && tsc-alias"
 	},
+	"files": [
+		"dist/**",
+		"register/**",
+		"package.json",
+		"tsconfig.json"
+	],
 	"author": "Roman Melamud",
 	"license": "MIT",
 	"dependencies": {

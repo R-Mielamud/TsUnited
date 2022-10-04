@@ -28,5 +28,3 @@ export const compile = async (): Promise<void> => {
 
 export * from "./typescript";
 export * from "./paths";
-
-compile();
