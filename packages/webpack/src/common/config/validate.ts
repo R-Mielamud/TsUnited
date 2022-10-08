@@ -21,6 +21,7 @@ export const configSchema: Schema = {
 			required: true,
 			items: {
 				type: "object",
+				required: true,
 				properties: {
 					name: {
 						type: "string",

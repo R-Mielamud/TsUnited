@@ -1,5 +1,6 @@
-import path from "path";
+import fsSync from "fs";
 import fs from "fs/promises";
+import path from "path";
 
 export const traverseDir = async (
 	dir: string,
@@ -27,6 +28,37 @@ export const traverseDir = async (
 	);
 
 	return paths;
+};
+
+export const getParentPaths = (baseDir: string): string[] => {
+	const paths: string[] = [];
+
+	let currentPath = baseDir;
+	let nextPath: string;
+
+	while (currentPath !== (nextPath = path.resolve(currentPath, "../"))) {
+		paths.push(currentPath);
+		currentPath = nextPath;
+	}
+
+	return paths;
+};
+
+export const findFileInParentPaths = (
+	baseDir: string,
+	possibleNames: string[]
+): string | undefined => {
+	const parentPaths = getParentPaths(baseDir);
+
+	for (const parentPath of parentPaths) {
+		for (const name of possibleNames) {
+			const fullPossiblePath = path.resolve(parentPath, name);
+
+			if (fsSync.existsSync(fullPossiblePath)) {
+				return fullPossiblePath;
+			}
+		}
+	}
 };
 
 export const isParent = (parent: string, child: string): boolean => {

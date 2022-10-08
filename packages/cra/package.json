@@ -1,8 +1,11 @@
 {
-	"name": "@ts-united/webpack",
+	"name": "@ts-united/cra",
 	"version": "1.0.0",
 	"description": "",
 	"main": "dist/index.js",
+	"bin": {
+		"tsu-cra": "./dist/exposed-bin/tsu-cra.js"
+	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "tsc && tsc-alias"
@@ -15,16 +18,12 @@
 	"author": "Roman Melamud",
 	"license": "MIT",
 	"dependencies": {
-		"fork-ts-checker-webpack-plugin": "latest",
-		"ts-loader": "latest",
-		"tsconfig-paths": "latest"
+		"@ts-united/webpack": "latest"
 	},
 	"peerDependencies": {
-		"typescript": "*",
-		"webpack": "^5.0.0"
+		"typescript": "*"
 	},
 	"devDependencies": {
-		"@types/webpack": "5.28.0",
 		"tsc-alias": "1.7.0",
 		"typescript": "4.8.3"
 	}

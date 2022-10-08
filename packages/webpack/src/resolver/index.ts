@@ -14,6 +14,7 @@ import {
 	validateConfig,
 	NoProjectContainsPathError,
 } from "~/common";
+
 import { createProjectMatcher } from "./matchers";
 
 export default class UnitedPlugin implements ResolvePluginInstance {
@@ -21,7 +22,7 @@ export default class UnitedPlugin implements ResolvePluginInstance {
 	public readonly source = "described-resolve";
 	public readonly target = "resolve";
 
-	protected config!: Config;
+	protected config: Config;
 	protected targetHook!: Hook;
 	protected sourceHook!: Hook;
 	protected resolver!: Resolver;
@@ -45,7 +46,7 @@ export default class UnitedPlugin implements ResolvePluginInstance {
 			return this.matchersCache.get(project.name) as Matcher;
 		}
 
-		const matcher = await createProjectMatcher(project, this.resolver);
+		const matcher = await createProjectMatcher(project);
 		this.matchersCache.set(project.name, matcher);
 
 		return matcher;

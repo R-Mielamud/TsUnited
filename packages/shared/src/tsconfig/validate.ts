@@ -49,5 +49,6 @@ export const validateCompilerOptions = async ({
 	}
 
 	newOptions.rootDir = await getRootDir(tsconfig, project);
+
 	return newOptions;
 };
