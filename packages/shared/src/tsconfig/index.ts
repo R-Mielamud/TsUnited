@@ -3,11 +3,11 @@ import { BaseProject, Tsconfig, TsconfigNotFoundError } from "..";
 import { getTsconfigPath, loadTsconfig, parseTsconfig } from "./parse";
 import { validateCompilerOptions } from "./validate";
 
-export const getTsconfig = async (
+export const getTsconfig = (
 	project: BaseProject,
 	outDirImportant: boolean = true,
 	overrideOutDir?: string
-): Promise<Tsconfig> => {
+): Tsconfig => {
 	const path = getTsconfigPath(project);
 
 	if (!path) {
@@ -18,7 +18,7 @@ export const getTsconfig = async (
 	const { options, fileNames, errors } = parseTsconfig(config, project);
 	const tsconfig: Tsconfig = { options, fileNames, errors, path };
 
-	tsconfig.options = await validateCompilerOptions({
+	tsconfig.options = validateCompilerOptions({
 		tsconfig,
 		project,
 		outDir: {

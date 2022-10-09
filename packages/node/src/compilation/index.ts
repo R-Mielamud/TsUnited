@@ -5,9 +5,9 @@ import { replaceAliases } from "./paths";
 
 import { compileProject } from "./typescript";
 
-export const compile = async (): Promise<void> => {
+export const compile = () => {
 	const config = getConfig();
-	config.rootProject.tsconfig = await getTsconfig(config.rootProject);
+	config.rootProject.tsconfig = getTsconfig(config.rootProject);
 
 	compileProject(config.rootProject);
 
@@ -18,7 +18,7 @@ export const compile = async (): Promise<void> => {
 
 	for (const project of config.relatedProjects) {
 		const outDir = path.resolve(relatedOutBase, project.name);
-		project.tsconfig = await getTsconfig(project, true, outDir);
+		project.tsconfig = getTsconfig(project, true, outDir);
 
 		compileProject(project);
 	}

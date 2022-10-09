@@ -7,10 +7,8 @@ export const getProjectExtensions = (project: Project): string[] => {
 	return project.extensions ?? DEFAULT_EXTENSIONS;
 };
 
-export const createProjectMatcher = async (
-	project: Project
-): Promise<Matcher> => {
-	const tsconfig = await getCachedTsconfig(project);
+export const createProjectMatcher = (project: Project): Matcher => {
+	const tsconfig = getCachedTsconfig(project);
 	const extensions = getProjectExtensions(project);
 
 	if (!tsconfig.options.baseUrl) {

@@ -22,11 +22,11 @@ type Args = {
 	outDir?: OutDirArgs;
 };
 
-export const validateCompilerOptions = async ({
+export const validateCompilerOptions = ({
 	tsconfig,
 	project,
 	outDir = {},
-}: Args): Promise<ts.CompilerOptions> => {
+}: Args): ts.CompilerOptions => {
 	const newOptions = { ...tsconfig.options };
 
 	if (outDir.important) {
@@ -48,7 +48,7 @@ export const validateCompilerOptions = async ({
 		throw new BaseDirOutsideProjectError(project.name);
 	}
 
-	newOptions.rootDir = await getRootDir(tsconfig, project);
+	newOptions.rootDir = getRootDir(tsconfig, project);
 
 	return newOptions;
 };

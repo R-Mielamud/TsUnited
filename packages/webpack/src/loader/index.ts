@@ -11,6 +11,7 @@ import {
 	SUPPRESSED_DIAGNOSTICS,
 	validateConfig,
 } from "~/common";
+
 import { getCachedTsconfig } from "~/runtime";
 
 export default function unitedLoader(
@@ -31,28 +32,29 @@ export default function unitedLoader(
 		throw new NoProjectContainsFileError(sourcePath);
 	}
 
-	getCachedTsconfig(project)
-		.then(({ path: tsconfigPath }) => {
-			const tsloaderOptions: Partial<TsloaderOptions> = {
-				configFile: tsconfigPath,
-				ignoreDiagnostics: SUPPRESSED_DIAGNOSTICS,
-				reportFiles: [path.join(project.path, "**", "*.*")],
-			};
+	let tsconfigPath: string;
 
-			const tsloaderContext: LoaderContext<Partial<TsloaderOptions>> = {
-				...this,
-				query:
-					typeof this.query === "string"
-						? this.query
-						: tsloaderOptions,
-				async: () => callback,
-				getOptions: () => tsloaderOptions,
-			};
+	try {
+		tsconfigPath = getCachedTsconfig(project).path;
+	} catch (err) {
+		return callback(err as Error);
+	}
 
-			tsloader.call(
-				tsloaderContext as any, // Issue in ts-loader's types
-				source
-			);
-		})
-		.catch(callback);
+	const tsloaderOptions: Partial<TsloaderOptions> = {
+		configFile: tsconfigPath,
+		ignoreDiagnostics: SUPPRESSED_DIAGNOSTICS,
+		reportFiles: [path.join(project.path, "**", "*.*")],
+	};
+
+	const tsloaderContext: LoaderContext<Partial<TsloaderOptions>> = {
+		...this,
+		query: typeof this.query === "string" ? this.query : tsloaderOptions,
+		async: () => callback,
+		getOptions: () => tsloaderOptions,
+	};
+
+	tsloader.call(
+		tsloaderContext as any, // Issue in ts-loader's types
+		source
+	);
 }

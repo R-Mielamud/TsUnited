@@ -23,9 +23,7 @@ export const commonPart = (path1: string, path2: string): string => {
 	return common;
 };
 
-export const getCodeDir = async (
-	fileNames: string[]
-): Promise<string | undefined> => {
+export const getCodeDir = (fileNames: string[]): string | undefined => {
 	if (!fileNames.length) {
 		return;
 	}
@@ -37,10 +35,10 @@ export const getCodeDir = async (
 	);
 };
 
-export const getRootDir = async (
+export const getRootDir = (
 	tsconfig: Tsconfig,
 	project: BaseProject
-): Promise<string> => {
+): string => {
 	const rootDirSet = Boolean(tsconfig.options.rootDir);
 
 	const rootDirInsideProject = rootDirSet
@@ -48,7 +46,7 @@ export const getRootDir = async (
 		: true;
 
 	if (!rootDirSet || !rootDirInsideProject) {
-		const codeDir = await getCodeDir(tsconfig.fileNames);
+		const codeDir = getCodeDir(tsconfig.fileNames);
 
 		if (!rootDirInsideProject) {
 			if (!codeDir) {
