@@ -1,6 +1,6 @@
 import path from "path";
 
-import { DEFAULT_UNITED_FOLDER, getConfig, getTsconfig } from "~/common";
+import { getConfig, getTsconfig } from "~/common";
 import { replaceAliases } from "./paths";
 
 import { compileProject } from "./typescript";
@@ -13,7 +13,7 @@ export const compile = () => {
 
 	const relatedOutBase = path.resolve(
 		config.rootProject.tsconfig.options.outDir as string,
-		config.unitedFolder ?? DEFAULT_UNITED_FOLDER
+		config.unitedFolder as string
 	);
 
 	for (const project of config.relatedProjects) {

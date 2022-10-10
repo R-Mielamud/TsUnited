@@ -1,5 +1,6 @@
 import path from "path";
-import { Config, Project } from "~/common";
+
+import { Config, DEFAULT_UNITED_FOLDER, Project } from "~/common";
 
 export const resolveProject = (baseDir: string, project: Project): Project => {
 	return {
@@ -15,6 +16,7 @@ export const resolveConfig = (baseDir: string, config: Config): Config => {
 
 	return {
 		...config,
+		unitedFolder: config.unitedFolder ?? DEFAULT_UNITED_FOLDER,
 		rootProject: resolveProject(baseDir, config.rootProject),
 		relatedProjects: config.relatedProjects
 			? config.relatedProjects.map((project) =>

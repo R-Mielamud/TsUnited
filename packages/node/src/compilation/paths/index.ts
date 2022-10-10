@@ -3,8 +3,7 @@ import fs from "fs/promises";
 import path from "path";
 import { createMatchPath, MatchPath } from "tsconfig-paths";
 
-import { Config, isParent, Tsconfig, DEFAULT_UNITED_FOLDER } from "~/common";
-
+import { Config, convertForwardSlashes, isParent, Tsconfig } from "~/common";
 import { replacePaths } from "./import-regex";
 import { traverseOut } from "./traverse";
 
@@ -52,7 +51,9 @@ export const replaceInFile = async (file: string, resolver: MatchPath) => {
 			return importString;
 		}
 
-		const relativePath = path.relative(fileDir, resolved);
+		const relativePath = convertForwardSlashes(
+			path.relative(fileDir, resolved)
+		);
 
 		return /^\.\.?\//.test(relativePath) || path.isAbsolute(relativePath)
 			? relativePath
@@ -77,7 +78,7 @@ export const replaceAliases = async (config: Config): Promise<void> => {
 				const files = await traverseOut(
 					outDir as string,
 					declarationDir,
-					[config.unitedFolder ?? DEFAULT_UNITED_FOLDER]
+					[config.unitedFolder as string]
 				);
 
 				const outPaths = replaceOutPaths(tsconfig, config);
