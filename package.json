@@ -1,0 +1,22 @@
+{
+	"name": "ts-united",
+	"version": "0.0.0",
+	"description": "Top-level package.json of the TS United project. Contains scripts used in development",
+	"private": true,
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build:all": "npm run build:node && npm run build:webpack && npm run build:cra && npm run build:metro",
+		"pack:all": "npm run pack:node && npm run pack:webpack && npm run pack:cra && npm run pack:metro",
+		"build:node": "cd packages/node && npm run build",
+		"build:webpack": "cd packages/webpack && npm run build",
+		"build:cra": "cd packages/cra && npm run build",
+		"build:metro": "cd packages/metro && npm run build",
+		"pack:node": "cd packages/node && npm pack",
+		"pack:webpack": "cd packages/webpack && npm pack",
+		"pack:cra": "cd packages/cra && npm pack",
+		"pack:metro": "cd packages/metro && npm pack"
+	},
+	"files": [],
+	"author": "Roman Melamud",
+	"license": "MIT"
+}
