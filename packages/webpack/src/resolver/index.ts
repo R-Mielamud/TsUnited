@@ -63,7 +63,7 @@ export default class UnitedPlugin implements ResolvePluginInstance {
 		req: ResolveRequest,
 		context: ResolveContext
 	): Promise<ResolveRequest | undefined> {
-		const project = getProjectByPath(req.path, this.config);
+		const project = getProjectByPath(req.path, this.config.projects);
 
 		if (!project) {
 			throw new NoProjectContainsPathError(req.path);

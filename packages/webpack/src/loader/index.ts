@@ -26,7 +26,7 @@ export default function unitedLoader(
 	const config = resolveConfig(rawConfig);
 	const sourcePath = this.resourcePath;
 
-	const project = getProjectByPath(sourcePath, config);
+	const project = getProjectByPath(sourcePath, config.projects);
 
 	if (!project) {
 		throw new NoProjectContainsFileError(sourcePath);
