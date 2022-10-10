@@ -4,7 +4,7 @@ import { fork } from "child_process";
 const printUsage = () => {
 	console.log(`Usage: tsu-node <file>
 
-    <file>: absolute or relative path to a TS file`);
+    <file>: absolute or relative path to a TS or JS file`);
 };
 
 const main = () => {

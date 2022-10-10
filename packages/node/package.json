@@ -15,7 +15,8 @@
 		"dist/**",
 		"register/**",
 		"package.json",
-		"tsconfig.json"
+		"tsconfig.json",
+		"README.md"
 	],
 	"author": "Roman Melamud",
 	"license": "MIT",

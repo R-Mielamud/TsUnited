@@ -5,6 +5,6 @@ export class TsUnitedError extends Error {
 	}
 
 	public warn() {
-		console.warn(this);
+		console.warn(`Warning: ${this.message}`);
 	}
 }

@@ -1,5 +1,4 @@
 import { validate, Schema } from "..";
-import { Config } from "../types";
 
 export const projectSchema: Schema = {
 	type: "object",
@@ -39,8 +38,6 @@ export const configSchema: Schema = {
 	},
 };
 
-export const validateConfig = (config: any): config is Config => {
+export const validateConfig = (config: any): void => {
 	validate("config", config, configSchema);
-
-	return true;
 };
