@@ -5,7 +5,7 @@ This project uses NodeJS runtime and **@ts-united/node**
 ## Technologies
 
 -   NodeJS
--   @ts-united/node
+-   **@ts-united/node**
 -   lowdb
 -   fastify
 

@@ -1,0 +1,24 @@
+{
+	"name": "mocha-tests",
+	"version": "1.0.0",
+	"description": "Tests for backend part of todo-list mini app. This project uses NodeJS runtime and @ts-united/node. Also it shows the case when a project references more than one other project.",
+	"main": "dist/index.js",
+	"private": true,
+	"scripts": {
+		"test": "mocha --config mocha.config.js"
+	},
+	"keywords": [],
+	"author": "Roman Melamud",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/chai": "^4.3.3",
+		"@types/mocha": "^10.0.0",
+		"typescript": "^4.8.4"
+	},
+	"dependencies": {
+		"@ts-united/node": "latest",
+		"chai": "^4.3.6",
+		"chai-http": "^4.3.0",
+		"mocha": "^10.0.0"
+	}
+}

@@ -11,3 +11,5 @@ If you don't want to install dependences for all projects, install shared's depe
 -   mocha-tests - `npm run install:mocha-tests` (mocha-tests project references backend project, so the command will also install backend's dependencies)
 
 Check every example project's README.md for guides.
+
+It's recommended to start with backend example and then check out mocha-tests example because it shows the case when a project references more than one other project.
