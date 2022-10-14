@@ -9,10 +9,8 @@
 			"~/*": ["./src/*"],
 			"~shared": ["../shared/src/index"],
 			"~server": ["../backend/src/server"]
-			// Now we can import shared project from backend project like this: `import { something } from "~shared"`
+			// Now we can import shared project like this: `import { something } from "~shared"`
 			// and server from backend project like this: `import server from "~server"`
-		},
-		"declaration": true,
-		"outDir": "./dist"
+		}
 	}
 }

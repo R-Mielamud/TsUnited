@@ -1,0 +1,37 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="bundle.js"></script>
+		<title>Todo list</title>
+	</head>
+	<body>
+		<h1>Welcome to the minimalistic Todo list</h1>
+		<div class="new-todo-form">
+			<textarea id="new-todo-text"></textarea>
+			<button id="save-button">Save todo</button>
+		</div>
+		<div>
+			<input
+				type="radio"
+				name="todo-show-mode"
+				class="todo-show-mode"
+				value="todo-show-mode-all"
+				checked
+			/>
+			<label for="todo-show-mode-all">All todos</label>
+			<input
+				type="radio"
+				name="todo-show-mode"
+				class="todo-show-mode"
+				value="todo-show-mode-only-undone"
+			/>
+			<label for="todo-show-mode-only-undone">Only undone todos</label>
+		</div>
+		<h2>To Do:</h2>
+		<ul id="todos">
+			Nothing here...
+		</ul>
+	</body>
+</html>

@@ -6,10 +6,7 @@
 		"rootDir": "./src",
 		"baseUrl": "./",
 		"paths": {
-			"~/*": ["./src/*"],
-			"~shared": ["../shared/src/index"] // Now we can import shared project from backend project like this: `import { something } from "~shared"`
-		},
-		"declaration": true,
-		"outDir": "./dist"
+			"~/*": ["./src/*"]
+		}
 	}
 }
