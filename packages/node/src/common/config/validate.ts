@@ -39,5 +39,5 @@ export const configSchema: Schema = {
 };
 
 export const validateConfig = (config: any): void => {
-	validate("config", config, configSchema);
+	validate("ts-united-config", config, configSchema);
 };

@@ -20,7 +20,7 @@ export const projectSchema: Schema = {
 			items: {
 				type: "string",
 				required: true,
-				regex: /^\\..*$/,
+				regex: /^\.[a-zA-Z0-9]+$/,
 			},
 		},
 	},
@@ -51,5 +51,5 @@ export const configSchema: Schema = {
 };
 
 export const validateConfig = (config: any): void => {
-	return validate("config", config, configSchema);
+	return validate("ts-united-config", config, configSchema);
 };

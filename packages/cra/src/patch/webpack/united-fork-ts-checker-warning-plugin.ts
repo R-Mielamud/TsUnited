@@ -2,7 +2,7 @@ import { ForkTsCheckerWebpackPluginOptions } from "fork-ts-checker-webpack-plugi
 import { UnitedForkTsCheckerPlugin } from "@ts-united/webpack";
 import { Config as WebpackEditionConfig } from "@ts-united/webpack/dist/common";
 
-export class ForkTsCheckerWebpackPlugin extends UnitedForkTsCheckerPlugin {
+export class UnitedForkTsCheckerWarningPlugin extends UnitedForkTsCheckerPlugin {
 	public constructor(
 		config: WebpackEditionConfig,
 		forkTsCheckerConfig: ForkTsCheckerWebpackPluginOptions = {}
@@ -25,7 +25,3 @@ export class ForkTsCheckerWebpackPlugin extends UnitedForkTsCheckerPlugin {
 		});
 	}
 }
-
-const UnitedForkTsCheckerWarningPlugin = ForkTsCheckerWebpackPlugin;
-
-export { UnitedForkTsCheckerWarningPlugin };

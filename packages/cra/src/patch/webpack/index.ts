@@ -36,7 +36,8 @@ export const patchWebpackConfig = (
 		plugin.constructor.name === FORK_TS_CHECKER_PLUGIN_NAME
 			? new UnitedForkTsCheckerPlugin(
 					webpackEditionConfig,
-					patchForkTsCheckerConfig((plugin as any).options) // I really wanna access the options
+					// TypeScript says that options are inaccessible, but technically they're accessible
+					patchForkTsCheckerConfig((plugin as any).options)
 			  )
 			: plugin.constructor.name === FORK_TS_CHECKER_WARNING_PLUGIN_NAME
 			? new UnitedForkTsCheckerWarningPlugin(

@@ -7,8 +7,8 @@ export const getCachedTsconfig = (project: Project): Tsconfig => {
 		return tsconfigCache.get(project.name) as Tsconfig;
 	}
 
-	const tsconfigPath = getTsconfig(project, false);
-	tsconfigCache.set(project.name, tsconfigPath);
+	const tsconfig = getTsconfig(project, false);
+	tsconfigCache.set(project.name, tsconfig);
 
-	return tsconfigPath;
+	return tsconfig;
 };

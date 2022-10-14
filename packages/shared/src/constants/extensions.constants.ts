@@ -1,1 +1,1 @@
-export const DEFAULT_EXTENSIONS = [".js", ".ts", ".tsx", ".json"];
+export const DEFAULT_EXTENSIONS = [".js", ".jsx", ".ts", ".tsx", ".json"];

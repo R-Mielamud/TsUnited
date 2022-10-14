@@ -55,7 +55,7 @@ export const replaceInFile = async (file: string, resolver: MatchPath) => {
 			path.relative(fileDir, resolved)
 		);
 
-		return /^\.\.?\//.test(relativePath) || path.isAbsolute(relativePath)
+		return relativePath.startsWith(".") || path.isAbsolute(relativePath)
 			? relativePath
 			: "./" + relativePath;
 	});
