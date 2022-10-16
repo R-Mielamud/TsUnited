@@ -17,6 +17,8 @@ Also, you can build the project using `npm run build` command. It uses `tsu-node
 
 Now let's check the TS United configuration. Open the `ts-united.config.js` file. All options are explained in details by comments in code.
 
+Also, you can see that the `~shared` path alias in `tsconfig.json` points to the shared project. The shared project is imported from `./src/server.ts` file.
+
 ## Project API documentation
 
 -   `POST /`

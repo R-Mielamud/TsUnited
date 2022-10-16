@@ -124,7 +124,7 @@ export default class App {
 	protected getNewTodoId() {
 		const lastId = this.todos.reduce<number>(
 			(prevLastId, todo) => Math.max(prevLastId, todo.id),
-			1
+			0
 		);
 
 		return lastId + 1;

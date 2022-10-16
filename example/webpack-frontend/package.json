@@ -2,7 +2,6 @@
 	"name": "webpack-frontend",
 	"version": "1.0.0",
 	"description": "Frontend part for our todo list mini app, built using VanillaJS and Webpack. This project uses Webpack runtime and @ts-united/webpack.",
-	"main": "dist/index.js",
 	"private": true,
 	"scripts": {
 		"start": "webpack serve",

@@ -14,7 +14,7 @@ const PUBLIC_DIR = path.join(__dirname, "public");
 const TS_UNITED_CONFIG = {
 	/* CWD is a base directory for all other directories in config. It can be either absolute or relative.
 	It's recommended to construct absolute paths using `path.resolve()` function.
-	If it's relative, it'll be relative to `process.cwd()` (the directory mocha command was run in).
+	If it's relative, it'll be relative to `process.cwd()` (the directory webpack command was run in).
 	This option is not required. Default value - process.cwd()
 	*/
 	cwd: "../",

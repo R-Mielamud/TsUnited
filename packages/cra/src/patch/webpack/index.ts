@@ -1,75 +1,38 @@
 import { Configuration as WebpackConfig } from "webpack";
-import { UnitedPlugin, UnitedForkTsCheckerPlugin } from "@ts-united/webpack";
 import { Config as WebpackEditionConfig } from "@ts-united/webpack/dist/common";
-import { ForkTsCheckerWebpackPluginOptions } from "fork-ts-checker-webpack-plugin/lib/plugin-options";
 
 import {
 	configToWebpackEditionConfig,
 	Config,
 	patchModuleInRequireCache,
 	findReactScriptsWebpackConfigs,
-	FORK_TS_CHECKER_PLUGIN_NAME,
-	MODULE_SCOPE_PLUGIN_NAME,
-	FORK_TS_CHECKER_WARNING_PLUGIN_NAME,
 } from "~/common";
 
-import { UnitedForkTsCheckerWarningPlugin } from "./united-fork-ts-checker-warning-plugin";
-
-export const patchForkTsCheckerConfig = (
-	config: ForkTsCheckerWebpackPluginOptions
-): ForkTsCheckerWebpackPluginOptions => {
-	return {
-		...config,
-		logger: "webpack-infrastructure",
-	};
-};
+import { replaceResolverPlugin } from "./resolver";
+import { replaceBabelLoader } from "./loader";
+import { patchPlugins } from "./plugins";
 
 export const patchWebpackConfig = (
 	webpackEditionConfig: WebpackEditionConfig,
 	webpackConfig: WebpackConfig
 ): WebpackConfig => {
-	const filteredResolvers = webpackConfig.resolve?.plugins?.filter(
-		(plugin) => plugin.constructor.name !== MODULE_SCOPE_PLUGIN_NAME
-	);
-
-	const substitutedPlugins = webpackConfig.plugins?.map((plugin) =>
-		plugin.constructor.name === FORK_TS_CHECKER_PLUGIN_NAME
-			? new UnitedForkTsCheckerPlugin(
-					webpackEditionConfig,
-					// TypeScript says that options are inaccessible, but technically they're accessible
-					patchForkTsCheckerConfig((plugin as any).options)
-			  )
-			: plugin.constructor.name === FORK_TS_CHECKER_WARNING_PLUGIN_NAME
-			? new UnitedForkTsCheckerWarningPlugin(
-					webpackEditionConfig,
-					patchForkTsCheckerConfig((plugin as any).options) // And here too
-			  )
-			: plugin
-	);
-
 	return {
 		...webpackConfig,
 		resolve: {
 			...webpackConfig.resolve,
-			plugins: [
-				new UnitedPlugin(webpackEditionConfig),
-				...(filteredResolvers ?? []),
-			],
+			plugins: replaceResolverPlugin(
+				webpackEditionConfig,
+				webpackConfig.resolve?.plugins
+			),
 		},
 		module: {
 			...webpackConfig.module,
-			rules: [
-				{
-					test: /\.tsx?/,
-					use: {
-						loader: "@ts-united/webpack",
-						options: webpackEditionConfig,
-					},
-				},
-				...(webpackConfig.module?.rules ?? []),
-			],
+			rules: replaceBabelLoader(
+				webpackEditionConfig,
+				webpackConfig.module?.rules
+			),
 		},
-		plugins: substitutedPlugins ?? [],
+		plugins: patchPlugins(webpackEditionConfig, webpackConfig.plugins),
 	};
 };
 

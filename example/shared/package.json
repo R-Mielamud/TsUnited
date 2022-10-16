@@ -2,7 +2,6 @@
 	"name": "shared",
 	"version": "1.0.0",
 	"description": "Shared part of todo-list mini app. This project imported from by other projects.",
-	"main": "dist/index.js",
 	"private": true,
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"

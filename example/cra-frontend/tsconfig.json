@@ -1,0 +1,18 @@
+{
+	"extends": "../tsconfig.json",
+	"include": ["src"],
+	"exclude": ["node_modules"],
+	"compilerOptions": {
+		"module": "esnext",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"moduleResolution": "node",
+		"jsx": "react-jsx",
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": "./",
+		"paths": {
+			"~/*": ["./src/*"],
+			"~shared": ["../shared/src/index.ts"]
+			// Now we can import shared project from cra-frontend project like this: `import { something } from "~shared"`
+		}
+	}
+}

@@ -39,7 +39,7 @@ export const configSchema: Schema = {
 			items: {
 				type: "string",
 				required: true,
-				regex: /^\\..*$/,
+				regex: /^\.[a-zA-Z0-9]+$/,
 			},
 		},
 		rootProject: projectSchema,

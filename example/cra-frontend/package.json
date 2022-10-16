@@ -1,0 +1,46 @@
+{
+	"name": "cra-frontend",
+	"version": "1.0.0",
+	"description": "Frontend part for our todo list mini app, built using Create React App. This project uses CRA (which uses Webpack runtime under the hood) and @ts-united/cra.",
+	"private": true,
+	"scripts": {
+		"start": "tsu-cra start",
+		"build": "tsu-cra build",
+		"test": "tsu-cra test",
+		"eject": "react-scripts eject"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"dependencies": {
+		"@testing-library/jest-dom": "^5.16.5",
+		"@testing-library/react": "^13.4.0",
+		"@testing-library/user-event": "^13.5.0",
+		"@ts-united/cra": "latest",
+		"@types/jest": "^27.5.2",
+		"@types/node": "^16.11.65",
+		"@types/react": "^18.0.21",
+		"@types/react-dom": "^18.0.6",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-scripts": "5.0.1",
+		"sass": "^1.55.0",
+		"typescript": "^4.8.4",
+		"web-vitals": "^2.1.4"
+	}
+}
