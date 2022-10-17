@@ -1,0 +1,21 @@
+{
+	"extends": "../tsconfig.json",
+	"include": ["src", "index.js"],
+	"exclude": ["node_modules", "babel.config.js", "metro.config.js"],
+	"compilerOptions": {
+		"target": "esnext",
+		"module": "commonjs",
+		"types": ["react-native", "jest"],
+		"lib": ["es2019"],
+		"jsx": "react-native",
+		"moduleResolution": "node",
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": "./",
+		"rootDir": "./",
+		"paths": {
+			"~/*": ["./src/*"],
+			"~shared": ["../shared/src/index"]
+			// Now we can import shared project from react-native-mobile project like this: `import { something } from "~shared"`
+		}
+	}
+}

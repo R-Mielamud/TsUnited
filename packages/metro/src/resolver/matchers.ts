@@ -20,8 +20,7 @@ export const createProjectMatcher = (
 
 	const match = createMatchPath(
 		tsconfig.options.baseUrl,
-		tsconfig.options.paths ?? {},
-		["main"]
+		tsconfig.options.paths ?? {}
 	);
 
 	return {

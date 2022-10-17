@@ -1,4 +1,4 @@
-# This folder shows how to use all editions of TS United on a small todo-list project
+# This folder shows how to use all editions of TS United on a small todo list project
 
 At first, install all dependencies for all projects using `npm run install:all`.
 

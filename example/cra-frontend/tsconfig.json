@@ -11,7 +11,7 @@
 		"baseUrl": "./",
 		"paths": {
 			"~/*": ["./src/*"],
-			"~shared": ["../shared/src/index.ts"]
+			"~shared": ["../shared/src/index"]
 			// Now we can import shared project from cra-frontend project like this: `import { something } from "~shared"`
 		}
 	}

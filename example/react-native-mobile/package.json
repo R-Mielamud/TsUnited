@@ -1,0 +1,47 @@
+{
+	"name": "react-native-mobile",
+	"version": "1.0.0",
+	"description": "Mobile part for our todo list mini app, built using React Native. This project uses Metro runtime and @ts-united/metro.",
+	"private": true,
+	"scripts": {
+		"start": "react-native start",
+		"android": "react-native run-android",
+		"ios": "react-native run-ios"
+	},
+	"jest": {
+		"preset": "react-native",
+		"moduleFileExtensions": [
+			"ts",
+			"tsx",
+			"js",
+			"jsx",
+			"json",
+			"node"
+		]
+	},
+	"devDependencies": {
+		"@babel/core": "^7.12.9",
+		"@babel/runtime": "^7.12.5",
+		"@react-native-community/eslint-config": "^2.0.0",
+		"@ts-united/metro": "latest",
+		"@tsconfig/react-native": "^2.0.2",
+		"@types/jest": "^26.0.23",
+		"@types/react": "^18.0.21",
+		"@types/react-native": "^0.70.4",
+		"@types/react-test-renderer": "^18.0.0",
+		"@typescript-eslint/eslint-plugin": "^5.37.0",
+		"@typescript-eslint/parser": "^5.37.0",
+		"babel-jest": "^26.6.3",
+		"eslint": "^7.32.0",
+		"jest": "^26.6.3",
+		"metro-react-native-babel-preset": "0.72.3",
+		"react-test-renderer": "18.1.0",
+		"typescript": "^4.8.3"
+	},
+	"dependencies": {
+		"@react-native-community/checkbox": "^0.5.12",
+		"fast-text-encoding": "^1.0.6",
+		"react": "18.1.0",
+		"react-native": "0.70.3"
+	}
+}

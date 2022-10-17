@@ -1,7 +1,7 @@
 {
 	"name": "backend",
 	"version": "1.0.0",
-	"description": "Backend part of todo-list mini app. This project uses NodeJS runtime and @ts-united/node",
+	"description": "Backend part of todo list mini app. This project uses NodeJS runtime and @ts-united/node",
 	"private": true,
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",

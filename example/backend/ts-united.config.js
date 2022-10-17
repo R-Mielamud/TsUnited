@@ -20,7 +20,7 @@ module.exports = {
 	United folder option expects only folder name, not path.
 	This options is not required. Default value - .united_projects (with dot)
 	*/
-	unitedFolder: ".united_folder", // Set to default value
+	unitedFolder: ".united_projects", // Set to default value
 	/* The main (also refered as root) project's information.
 	This option is required.
 	*/

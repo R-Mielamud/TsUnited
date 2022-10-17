@@ -12,7 +12,10 @@ class UnitedMetroResolver {
 		const config = resolveConfig(rawConfig);
 
 		this.resolver = unitedMetroResolver(config);
-		this.watchFolders = config.projects.map((project) => project.path);
+
+		this.watchFolders = [config.rootProject, ...config.relatedProjects].map(
+			(project) => project.path
+		);
 	}
 }
 

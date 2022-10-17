@@ -1,4 +1,4 @@
-# This project contains tests for the backend part of our mini app (todo-list)
+# This project contains tests for the backend part of our mini app (todo list)
 
 This project uses NodeJS runtime and **@ts-united/node**. Also it shows the case when a project references more than one other project.
 

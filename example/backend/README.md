@@ -1,4 +1,4 @@
-# This is the backend part of our mini app (todo-list)
+# This is the backend part of our mini app (todo list)
 
 This project uses NodeJS runtime and **@ts-united/node**
 

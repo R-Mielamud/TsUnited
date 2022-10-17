@@ -1,4 +1,4 @@
-# This is the frontend part of our mini app (todo-list), built using Webpack
+# This is the frontend part of our mini app (todo list), built using Webpack
 
 This project uses Webpack runtime and **@ts-united/webpack**
 

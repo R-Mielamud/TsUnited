@@ -12,7 +12,8 @@ export const resolveProject = (config: Config, project: Project): Project => {
 export const resolveConfig = (config: Config): Config => {
 	return {
 		...config,
-		projects: config.projects.map((project) =>
+		rootProject: resolveProject(config, config.rootProject),
+		relatedProjects: config.relatedProjects.map((project) =>
 			resolveProject(config, project)
 		),
 	};

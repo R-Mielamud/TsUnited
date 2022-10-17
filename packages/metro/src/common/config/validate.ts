@@ -1,5 +1,23 @@
 import { Schema, validate } from "..";
 
+export const projectSchema: Schema = {
+	type: "object",
+	required: true,
+	properties: {
+		name: {
+			type: "string",
+			required: true,
+			minLength: 1,
+			regex: /^[-a-zA-Z0-9_.]+$/,
+		},
+		path: {
+			type: "string",
+			required: true,
+			minLength: 1,
+		},
+	},
+};
+
 export const configSchema: Schema = {
 	type: "object",
 	required: true,
@@ -8,26 +26,11 @@ export const configSchema: Schema = {
 			type: "string",
 			minLength: 1,
 		},
-		projects: {
+		rootProject: projectSchema,
+		relatedProjects: {
 			type: "array",
 			required: true,
-			items: {
-				type: "object",
-				required: true,
-				properties: {
-					name: {
-						type: "string",
-						required: true,
-						minLength: 1,
-						regex: /^[-a-zA-Z0-9_.]+$/,
-					},
-					path: {
-						type: "string",
-						required: true,
-						minLength: 1,
-					},
-				},
-			},
+			items: projectSchema,
 		},
 	},
 };
