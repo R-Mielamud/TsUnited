@@ -1,4 +1,4 @@
-import { Schema, validate } from "..";
+import { Config, Schema, validate, validateConfigProjectsList } from "..";
 
 export const configSchema: Schema = {
 	type: "object",
@@ -48,6 +48,7 @@ export const configSchema: Schema = {
 	},
 };
 
-export const validateConfig = (config: any): void => {
-	return validate("ts-united-config", config, configSchema);
+export const validateConfig = (config: Config) => {
+	validate("ts-united-config", config, configSchema);
+	validateConfigProjectsList(config.projects);
 };

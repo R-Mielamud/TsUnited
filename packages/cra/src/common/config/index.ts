@@ -25,7 +25,7 @@ export const configToWebpackEditionConfig = (
 ): WebpackEditionConfig => {
 	return {
 		...config,
-		projects: [config.rootProject, ...(config.relatedProjects ?? [])],
+		projects: [config.rootProject, ...config.relatedProjects],
 	};
 };
 

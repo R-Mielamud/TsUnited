@@ -5,5 +5,5 @@ import {
 
 export interface Config extends Omit<WebpackEditionConfig, "projects"> {
 	rootProject: Project;
-	relatedProjects?: Project[];
+	relatedProjects: Project[];
 }

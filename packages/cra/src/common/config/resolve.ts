@@ -22,7 +22,7 @@ export const resolveConfig = (
 	return {
 		...config,
 		rootProject: resolveProject(configFilePath, config, config.rootProject),
-		relatedProjects: config.relatedProjects?.map((project) =>
+		relatedProjects: (config.relatedProjects ?? []).map((project) =>
 			resolveProject(configFilePath, config, project)
 		),
 	};

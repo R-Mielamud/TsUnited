@@ -6,6 +6,7 @@ export * from "./out-dir-required.error";
 export * from "./out-file-not-supported.error";
 export * from "./package-json-corrupt.error";
 export * from "./package-json-not-found.error";
+export * from "./project-name-not-unique.error";
 export * from "./root-dir-outside-project.error";
 export * from "./root-dir-required.error";
 export * from "./ts-united.error";

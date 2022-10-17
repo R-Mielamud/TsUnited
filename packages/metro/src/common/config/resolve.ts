@@ -13,7 +13,7 @@ export const resolveConfig = (config: Config): Config => {
 	return {
 		...config,
 		rootProject: resolveProject(config, config.rootProject),
-		relatedProjects: config.relatedProjects.map((project) =>
+		relatedProjects: (config.relatedProjects ?? []).map((project) =>
 			resolveProject(config, project)
 		),
 	};

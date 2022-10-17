@@ -18,10 +18,8 @@ export const resolveConfig = (baseDir: string, config: Config): Config => {
 		...config,
 		unitedFolder: config.unitedFolder ?? DEFAULT_UNITED_FOLDER,
 		rootProject: resolveProject(baseDir, config.rootProject),
-		relatedProjects: config.relatedProjects
-			? config.relatedProjects.map((project) =>
-					resolveProject(baseDir, project)
-			  )
-			: [],
+		relatedProjects: (config.relatedProjects ?? []).map((project) =>
+			resolveProject(baseDir, project)
+		),
 	};
 };
