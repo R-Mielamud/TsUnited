@@ -5,5 +5,17 @@ export const getProjectByPath = (
 	path: string,
 	projects: BaseProject[]
 ): BaseProject | undefined => {
-	return projects.find((project) => isParent(project.path, path));
+	let foundProject: BaseProject | undefined;
+
+	projects.forEach((project) => {
+		if (!isParent(project.path, path)) {
+			return;
+		}
+
+		if (!foundProject || isParent(project.path, foundProject.path)) {
+			foundProject = project;
+		}
+	});
+
+	return foundProject;
 };
