@@ -13,6 +13,6 @@ This project uses NodeJS runtime and **@ts-united/node**. Also it shows the case
 
 Try to run the tests using `npm test` command.
 
-The tests will import the server instance from backend project (in `./src/specs/todo.spec.ts` file), start it on any free port, run the tests and stop the server. You don't need to start the server in a separate process! Isn't this cool? It makes CI workflows a lot simplier!
+The tests will import the server instance from backend project (in [./src/specs/todo.spec.ts](https://github.com/R-Mielamud/TsUnited/blob/main/example/mocha-tests/src/specs/todo.spec.ts) file), start it on any free port, run the tests and stop the server. You don't need to start the server in a separate process! Isn't this cool? It makes CI workflows a lot simplier!
 
-Now let's see how does it work. Comments in the `ts-united.config.js` explain every config option. In `mocha.config.js` file we tell mocha to import `@ts-united/node/register` module, which automatically registers TS United services when imported (see comments in the `mocha.config.js` file).
+Now let's see how does it work. Comments in the [ts-united.config.js](https://github.com/R-Mielamud/TsUnited/blob/main/example/mocha-tests/ts-united.config.js) explain every config option. In [mocha.config.js](https://github.com/R-Mielamud/TsUnited/blob/main/example/mocha-tests/mocha.config.js) file we tell mocha to import `@ts-united/node/register` module, which automatically registers TS United services when imported (see comments in the [mocha.config.js](https://github.com/R-Mielamud/TsUnited/blob/main/example/mocha-tests/mocha.config.js) file).

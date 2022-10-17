@@ -11,13 +11,13 @@ This project uses NodeJS runtime and **@ts-united/node**
 
 ## Guide
 
-Try to start the project using `npm start` command. As you can see in `package.json` file, the start is done using `tsu-node` binary. It reads configuration from the `ts-united.config.js` file, registers TS United services and runs any file you pass to it. You can see validation schemas imported from shared project in action by calling `POST /todo` endpoint (see project API documentation below)
+Try to start the project using `npm start` command. As you can see in [package.json](https://github.com/R-Mielamud/TsUnited/blob/main/example/backend/package.json) file, the start is done using `tsu-node` binary. It reads configuration from the [ts-united.config.js](https://github.com/R-Mielamud/TsUnited/blob/main/example/backend/ts-united.config.js) file, registers TS United services and runs any file you pass to it. You can see validation schemas imported from shared project in action by calling `POST /todo` endpoint (see project API documentation below)
 
 Also, you can build the project using `npm run build` command. It uses `tsu-node-compile` binary, which builds the project using it's `tsconfig.json`, replaces path aliases with corresponding relative paths and generates a merged `package.json` file which has all projects' dependencies. Related projects are also built and put into `.united_projects` folder inside the root project's output folder.
 
-Now let's check the TS United configuration. Open the `ts-united.config.js` file. All options are explained in details by comments in code.
+Now let's check the TS United configuration. Open the [ts-united.config.js](https://github.com/R-Mielamud/TsUnited/blob/main/example/backend/ts-united.config.js) file. All options are explained in details by comments in code.
 
-Also, you can see that the `~shared` path alias in `tsconfig.json` points to the shared project. The shared project is imported from `./src/server.ts` file.
+Also, you can see that the `~shared` path alias in [tsconfig.json](https://github.com/R-Mielamud/TsUnited/blob/main/example/backend/tsconfig.json) points to the shared project. The shared project is imported from `./src/server.ts` file.
 
 ## Project API documentation
 
