@@ -5,7 +5,7 @@ import { isParent, Project, SUPPRESSED_DIAGNOSTICS } from "~/common";
 import { filterDiagnostics } from "./diagnostics";
 
 export const compileProject = (project: Project): void => {
-	console.info(`Compiling ${project.name}\n`);
+	console.info(`\nCompiling ${project.name}`);
 
 	const program = ts.createProgram({
 		options: project.tsconfig.options,

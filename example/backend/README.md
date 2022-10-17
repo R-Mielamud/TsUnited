@@ -13,7 +13,7 @@ This project uses NodeJS runtime and **@ts-united/node**
 
 Try to start the project using `npm start` command. As you can see in `package.json` file, the start is done using `tsu-node` binary. It reads configuration from the `ts-united.config.js` file, registers TS United services and runs any file you pass to it. You can see validation schemas imported from shared project in action by calling `POST /todo` endpoint (see project API documentation below)
 
-Also, you can build the project using `npm run build` command. It uses `tsu-node-compile` binary, which builds the project using it's `tsconfig.json` and replaces path aliases with corresponding relative paths. Related projects are also built and put into `.united_projects` folder inside the main project's output folder.
+Also, you can build the project using `npm run build` command. It uses `tsu-node-compile` binary, which builds the project using it's `tsconfig.json`, replaces path aliases with corresponding relative paths and generates a merged `package.json` file which has all projects' dependencies. Related projects are also built and put into `.united_projects` folder inside the root project's output folder.
 
 Now let's check the TS United configuration. Open the `ts-united.config.js` file. All options are explained in details by comments in code.
 

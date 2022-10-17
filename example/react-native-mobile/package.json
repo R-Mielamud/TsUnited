@@ -1,7 +1,7 @@
 {
 	"name": "react-native-mobile",
 	"version": "1.0.0",
-	"description": "Mobile part for our todo list mini app, built using React Native. This project uses Metro runtime and @ts-united/metro.",
+	"description": "Mobile part of todo list mini app, built using React Native. This project uses Metro runtime and @ts-united/metro.",
 	"private": true,
 	"scripts": {
 		"start": "react-native start",

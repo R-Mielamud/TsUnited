@@ -7,7 +7,7 @@ import { Config, convertForwardSlashes, isParent, Tsconfig } from "~/common";
 import { replacePaths } from "./import-regex";
 import { traverseOut } from "./traverse";
 
-export const replaceOutPaths = (
+export const replaceRootWithOutPaths = (
 	{ options: { baseUrl, paths }, path: tsconfigPath }: Tsconfig,
 	config: Config
 ) => {
@@ -81,7 +81,7 @@ export const replaceAliases = async (config: Config): Promise<void> => {
 					[config.unitedFolder as string]
 				);
 
-				const outPaths = replaceOutPaths(tsconfig, config);
+				const outPaths = replaceRootWithOutPaths(tsconfig, config);
 				const resolver = createMatchPath(baseUrl, outPaths);
 
 				for (const file of files.reverse()) {
