@@ -18,7 +18,7 @@
 	"bugs": {
 		"url": "https://github.com/R-Mielamud/TsUnited/issues"
 	},
-	"homepage": "https://github.com/R-Mielamud/TsUnited#readme",
+	"homepage": "https://github.com/R-Mielamud/TsUnited/tree/main/packages/node#readme",
 	"files": [
 		"dist/**",
 		"register/**",
