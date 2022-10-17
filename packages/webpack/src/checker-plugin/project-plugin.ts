@@ -14,7 +14,6 @@ import { tapAfterCompileToAddDependencies } from "fork-ts-checker-webpack-plugin
 import { tapAfterEnvironmentToPatchWatching } from "fork-ts-checker-webpack-plugin/lib/hooks/tap-after-environment-to-patch-watching";
 import { tapErrorToLogMessage } from "fork-ts-checker-webpack-plugin/lib/hooks/tap-error-to-log-message";
 import { tapStopToTerminateWorkers } from "fork-ts-checker-webpack-plugin/lib/hooks/tap-stop-to-terminate-workers";
-import { forwardSlash } from "fork-ts-checker-webpack-plugin/lib/utils/path/forward-slash";
 import { aggregateFilesChanges } from "fork-ts-checker-webpack-plugin/lib/files-change";
 
 import {
@@ -39,6 +38,7 @@ import {
 
 import {
 	Config,
+	convertForwardSlashes,
 	ForkTsCheckerConfig,
 	Project,
 	SUPPRESSED_DIAGNOSTICS,
@@ -66,7 +66,7 @@ export default class ProjectForkTsCheckerPlugin extends ForkTsCheckerWebpackPlug
 		const projectExclusions = config.projects
 			.filter((project) => project.name !== mainProject.name)
 			.map((project) => ({
-				file: forwardSlash(
+				file: convertForwardSlashes(
 					path.join(
 						path.relative(mainProject.path, project.path),
 						"**",

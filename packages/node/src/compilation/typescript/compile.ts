@@ -1,10 +1,14 @@
 import ts from "typescript";
 
-import { isParent, Project, SUPPRESSED_DIAGNOSTICS } from "~/common";
+import {
+	isParent,
+	ProjectWithTsconfig,
+	SUPPRESSED_DIAGNOSTICS,
+} from "~/common";
 
 import { filterDiagnostics } from "./diagnostics";
 
-export const compileProject = (project: Project): void => {
+export const compileProject = (project: ProjectWithTsconfig): void => {
 	console.info(`\nCompiling ${project.name}`);
 
 	const program = ts.createProgram({

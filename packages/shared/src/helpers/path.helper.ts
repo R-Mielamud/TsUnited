@@ -61,8 +61,23 @@ export const findFileInParentPaths = (
 	}
 };
 
+export const convertForwardSlashes = (path: string) => {
+	return path.replace(/\\/g, "/");
+};
+
+export const toRequirePath = (sysPath: string) => {
+	const forwardSlashes = convertForwardSlashes(sysPath);
+
+	const isCompletePath =
+		/^\.{1,2}\//.test(forwardSlashes) || path.isAbsolute(forwardSlashes);
+
+	return isCompletePath ? forwardSlashes : "./" + forwardSlashes;
+};
+
 export const isParent = (parent: string, child: string): boolean => {
 	const relative = path.relative(parent, child);
 
-	return Boolean(!relative.startsWith("..") && !path.isAbsolute(relative));
+	return Boolean(
+		!/^\.\.(\/|\\)/.test(relative) && !path.isAbsolute(relative)
+	);
 };

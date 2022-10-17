@@ -3,13 +3,19 @@ import fs from "fs/promises";
 import path from "path";
 import { createMatchPath, MatchPath } from "tsconfig-paths";
 
-import { Config, convertForwardSlashes, isParent, Tsconfig } from "~/common";
+import {
+	ConfigWithTsconfigsInProjects,
+	toRequirePath,
+	isParent,
+	Tsconfig,
+} from "~/common";
+
 import { replacePaths } from "./import-regex";
 import { traverseOut } from "./traverse";
 
 export const replaceRootWithOutPaths = (
 	{ options: { baseUrl, paths }, path: tsconfigPath }: Tsconfig,
-	config: Config
+	config: ConfigWithTsconfigsInProjects
 ) => {
 	return Object.fromEntries(
 		Object.entries(paths ?? {}).map(([name, aliases]) => {
@@ -51,19 +57,15 @@ export const replaceInFile = async (file: string, resolver: MatchPath) => {
 			return importString;
 		}
 
-		const relativePath = convertForwardSlashes(
-			path.relative(fileDir, resolved)
-		);
-
-		return relativePath.startsWith(".") || path.isAbsolute(relativePath)
-			? relativePath
-			: "./" + relativePath;
+		return toRequirePath(path.relative(fileDir, resolved));
 	});
 
 	await fs.writeFile(file, newContent);
 };
 
-export const replaceAliases = async (config: Config): Promise<void> => {
+export const replaceAliases = async (
+	config: ConfigWithTsconfigsInProjects
+): Promise<void> => {
 	await Promise.all(
 		[...config.relatedProjects, config.rootProject].map(
 			async ({ tsconfig }) => {

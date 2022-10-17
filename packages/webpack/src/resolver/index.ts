@@ -79,7 +79,7 @@ export default class UnitedPlugin implements ResolvePluginInstance {
 	): Promise<ResolveRequest | undefined> {
 		if (
 			!req.request ||
-			req.request.startsWith(".") ||
+			/\.{1,2}(\/|\\)/.test(req.request) ||
 			path.isAbsolute(req.request)
 		) {
 			return;

@@ -12,12 +12,12 @@
 	"author": "Roman Melamud",
 	"license": "MIT",
 	"devDependencies": {
+		"@ts-united/node": "latest",
 		"@types/lowdb": "^1.0.11",
 		"@types/node": "^18.8.3",
 		"typescript": "^4.8.4"
 	},
 	"dependencies": {
-		"@ts-united/node": "latest",
 		"fastify": "^4.8.1",
 		"lowdb": "^1.0.0"
 	}

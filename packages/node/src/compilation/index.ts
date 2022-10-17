@@ -2,6 +2,7 @@ import path from "path";
 
 import {
 	CompileOptions,
+	ConfigWithTsconfigsInProjects,
 	getConfig,
 	getTsconfig,
 	PACKAGE_JSON_FILE_NAME,
@@ -12,10 +13,12 @@ import { replaceAliases } from "./paths";
 import { compileProject } from "./typescript";
 
 export const compile = async ({ noMergedPackageJson }: CompileOptions = {}) => {
-	const config = getConfig();
-	config.rootProject.tsconfig = getTsconfig(config.rootProject);
+	const config = getConfig() as ConfigWithTsconfigsInProjects;
+	const rootTsconfig = getTsconfig(config.rootProject);
 
-	const rootOut = config.rootProject.tsconfig.options.outDir as string;
+	config.rootProject.tsconfig = rootTsconfig;
+
+	const rootOut = rootTsconfig.options.outDir as string;
 	const mergedPackageJsonPath = path.resolve(rootOut, PACKAGE_JSON_FILE_NAME);
 	const relatedOutBase = path.resolve(rootOut, config.unitedFolder as string);
 
