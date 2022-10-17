@@ -16,6 +16,14 @@
 		"pack:cra": "cd packages/cra && npm pack",
 		"pack:metro": "cd packages/metro && npm pack"
 	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/R-Mielamud/TsUnited.git"
+	},
+	"bugs": {
+		"url": "https://github.com/R-Mielamud/TsUnited/issues"
+	},
+	"homepage": "https://github.com/R-Mielamud/TsUnited#readme",
 	"files": [],
 	"author": "Roman Melamud",
 	"license": "MIT"
