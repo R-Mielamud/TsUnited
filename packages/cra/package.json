@@ -13,7 +13,6 @@
 	"files": [
 		"dist/**",
 		"package.json",
-		"tsconfig.json",
 		"README.md"
 	],
 	"author": "Roman Melamud",
