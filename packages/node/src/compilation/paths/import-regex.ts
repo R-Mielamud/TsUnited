@@ -1,8 +1,8 @@
 export const funcStyleRegex =
-	/(\\b(?:import|require)\\s*\\(\\s*['"])([^"'\r\n]+)(['"]\\s*\\))/g;
+	/(\b(?:import|require)\s*\(\s*['"`])([^"'`\r\n]+)(['"`]\s*\))/g;
 
 export const statementStyleRegex =
-	/(\\b(?:import|from|module)\\s+['"])([^"'\r\n]+)(['"])/g;
+	/(\b(?:import|from|module)\s+['"`])([^"'`\r\n]+)(['"`])/g;
 
 export const replacePaths = (
 	fileContent: string,

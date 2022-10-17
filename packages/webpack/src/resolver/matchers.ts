@@ -20,8 +20,7 @@ export const createProjectMatcher = (project: Project): Matcher => {
 
 	const match = createMatchPathAsync(
 		tsconfig.options.baseUrl,
-		tsconfig.options.paths ?? {},
-		["main"]
+		tsconfig.options.paths ?? {}
 	);
 
 	return {
