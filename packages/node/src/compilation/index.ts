@@ -20,7 +20,7 @@ export const compile = async ({ noMergedPackageJson }: CompileOptions = {}) => {
 
 	const rootOut = rootTsconfig.options.outDir as string;
 	const mergedPackageJsonPath = path.resolve(rootOut, PACKAGE_JSON_FILE_NAME);
-	const relatedOutBase = path.resolve(rootOut, config.unitedFolder as string);
+	const relatedOutBase = path.resolve(rootOut, config.unitedFolder);
 
 	compileProject(config.rootProject);
 

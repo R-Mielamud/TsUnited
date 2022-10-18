@@ -80,7 +80,7 @@ export const replaceAliases = async (
 				const files = await traverseOut(
 					outDir as string,
 					declarationDir,
-					[config.unitedFolder as string]
+					[config.unitedFolder]
 				);
 
 				const outPaths = replaceRootWithOutPaths(tsconfig, config);

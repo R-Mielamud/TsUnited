@@ -1,6 +1,6 @@
 {
 	"extends": "../tsconfig.json",
-	"include": ["src", "../shared/src/types/todo-show-mode.types.ts"],
+	"include": ["src"],
 	"exclude": ["node_modules"],
 	"compilerOptions": {
 		"baseUrl": "./",

@@ -1,13 +1,13 @@
 import { CustomResolver } from "metro-resolver";
 
-import { Config, resolveConfig, validateConfig } from "./common";
+import { RawConfig, resolveConfig, validateConfig } from "./common";
 import { unitedMetroResolver } from "./resolver";
 
 class UnitedMetroResolver {
 	public readonly resolver: CustomResolver;
 	public readonly watchFolders: string[];
 
-	public constructor(rawConfig: Config) {
+	public constructor(rawConfig: RawConfig) {
 		validateConfig(rawConfig);
 		const config = resolveConfig(rawConfig);
 

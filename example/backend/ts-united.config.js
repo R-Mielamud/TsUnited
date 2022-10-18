@@ -12,13 +12,13 @@ The file can be in either JS or JSON format with corresponding extension added t
 module.exports = {
 	/* CWD is a base directory for all other directories in config. It can be either absolute or relative.
 	It's recommended to construct absolute paths using `path.resolve()` function.
-	If it's relative, it'll be relative to `process.cwd()` (the directory tsu-node/tsu-node-compile command was run in).
-	This option is not required. Default value - process.cwd()
+	If it's relative, it'll be relative to the directory config file is located in.
+	This option is not required. Default value - the directory config file is located in
 	*/
 	cwd: "../",
 	/* United folder is a folder in main project's output folder, that will contain built related projects
 	United folder option expects only folder name, not path.
-	This options is not required. Default value - .united_projects (with dot)
+	This option is not required. Default value - .united_projects (with dot)
 	*/
 	unitedFolder: ".united_projects", // Set to default value
 	/* The main (also refered as root) project's information.

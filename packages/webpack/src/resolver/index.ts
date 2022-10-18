@@ -28,9 +28,9 @@ export default class UnitedPlugin implements ResolvePluginInstance {
 	protected resolver!: Resolver;
 	protected matchersCache = new Map<string, Matcher>();
 
-	public constructor(config: Config) {
-		validateConfig(config);
-		this.config = resolveConfig(config);
+	public constructor(rawConfig: Config) {
+		validateConfig(rawConfig);
+		this.config = resolveConfig(rawConfig);
 	}
 
 	public apply(resolver: Resolver) {

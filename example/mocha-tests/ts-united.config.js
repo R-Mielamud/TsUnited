@@ -12,8 +12,8 @@ The file can be in either JS or JSON format with corresponding extension added t
 module.exports = {
 	/* CWD is a base directory for all other directories in config. It can be either absolute or relative.
 	It's recommended to construct absolute paths using `path.resolve()` function.
-	If it's relative, it'll be relative to `process.cwd()` (the directory mocha command was run in).
-	This option is not required. Default value - process.cwd()
+	If it's relative, it'll be relative to the directory config file is located in.
+	This option is not required. Default value - the directory config file is located in
 	*/
 	cwd: "../",
 	/* The main (also refered as root) project's information.

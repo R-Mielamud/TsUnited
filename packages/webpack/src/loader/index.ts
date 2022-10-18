@@ -14,6 +14,8 @@ import {
 
 import { getCachedTsconfig } from "~/runtime";
 
+let resolvedConfig: Config | undefined;
+
 export default function unitedLoader(
 	this: LoaderContext<Config>,
 	source: string
@@ -21,12 +23,15 @@ export default function unitedLoader(
 	const callback = this.async();
 
 	const rawConfig = this.getOptions();
-	validateConfig(rawConfig);
 
-	const config = resolveConfig(rawConfig);
+	if (!resolvedConfig) {
+		validateConfig(rawConfig);
+		resolvedConfig = resolveConfig(rawConfig);
+	}
+
 	const sourcePath = this.resourcePath;
 
-	const project = getProjectByPath(sourcePath, config.projects);
+	const project = getProjectByPath(sourcePath, resolvedConfig.projects);
 
 	if (!project) {
 		throw new NoProjectContainsFileError(sourcePath);

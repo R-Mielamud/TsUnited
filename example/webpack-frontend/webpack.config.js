@@ -19,7 +19,7 @@ const TS_UNITED_CONFIG = {
 	*/
 	cwd: "../",
 	/* Array of extensions TS United must allow to import
-	This options is not required. Default value - [".js", ".jsx", ".ts", ".tsx", ".json"]
+	This option is not required. Default value - [".js", ".jsx", ".ts", ".tsx", ".json"]
 	*/
 	extensions: [".ts", ".tsx"],
 	/* Array containing *all* projects info (including main aka root project)

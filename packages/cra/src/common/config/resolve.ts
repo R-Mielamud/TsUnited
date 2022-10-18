@@ -1,29 +1,26 @@
 import path from "path";
 
-import { Config } from "../types";
+import { Config, RawConfig } from "../types";
 import { Project } from "@ts-united/webpack/dist/common";
 
 export const resolveProject = (
-	configFilePath: string,
-	config: Config,
+	baseDir: string,
+	config: RawConfig,
 	project: Project
 ): Project => {
 	return {
 		...project,
-		path: path.resolve(configFilePath, config.cwd ?? "./", project.path),
+		path: path.resolve(baseDir, config.cwd ?? "./", project.path),
 		extensions: project.extensions ?? config.extensions,
 	};
 };
 
-export const resolveConfig = (
-	configFilePath: string,
-	config: Config
-): Config => {
+export const resolveConfig = (baseDir: string, config: RawConfig): Config => {
 	return {
 		...config,
-		rootProject: resolveProject(configFilePath, config, config.rootProject),
+		rootProject: resolveProject(baseDir, config, config.rootProject),
 		relatedProjects: (config.relatedProjects ?? []).map((project) =>
-			resolveProject(configFilePath, config, project)
+			resolveProject(baseDir, config, project)
 		),
 	};
 };
