@@ -1,5 +1,21 @@
 # TS United: CRA Edition
 
+<br>
+<div align="center">
+    <a href="https://npmjs.com/package/@ts-united/cra">
+        <img src="https://badgen.net/npm/v/@ts-united/cra">
+    </a>
+    <img src="https://badgen.net/packagephobia/install/@ts-united/cra">
+    <img src="https://badgen.net/badge/type%20declarations/included/blue?icon=typescript">
+    <a href="https://github.com/R-Mielamud/TsUnited/blob/main/LICENSE">
+        <img src="https://badgen.net/github/license/R-Mielamud/TsUnited">
+    </a>
+    <a href="https://github.com/R-Mielamud/TsUnited">
+        <img src="https://badgen.net/badge/PRs/welcome!/green?icon=git">
+    </a>
+</div>
+<br>
+
 > Building shared code and reinstalling it into all parts of a monorepo (backend, frontend, mobile)? Incrementing version and publishing shared code to NPM on every small change? Wasting time? **Forget about it with TS United!**
 
 TS United helps one TypeScript project (folder containing a `tsconfig.json` file) import TypeScript/JavaScript code from any other project, while checking each project's code and resolving imports in each project using **that project's** tsconfig.json.
