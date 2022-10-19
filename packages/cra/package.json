@@ -25,6 +25,19 @@
 	],
 	"author": "Roman Melamud",
 	"license": "MIT",
+	"keywords": [
+		"typescript",
+		"paths",
+		"types",
+		"type-checks",
+		"aliases",
+		"resolver",
+		"resolution",
+		"cra",
+		"react",
+		"override",
+		"create-react-app"
+	],
 	"dependencies": {
 		"@ts-united/webpack": "latest"
 	},

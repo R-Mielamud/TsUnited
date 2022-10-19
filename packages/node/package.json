@@ -27,6 +27,18 @@
 	],
 	"author": "Roman Melamud",
 	"license": "MIT",
+	"keywords": [
+		"typescript",
+		"paths",
+		"types",
+		"type-checks",
+		"aliases",
+		"resolver",
+		"resolution",
+		"node",
+		"nodejs",
+		"mocha"
+	],
 	"dependencies": {
 		"ts-node": "latest",
 		"tsconfig-paths": "latest"

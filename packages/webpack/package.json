@@ -22,6 +22,16 @@
 	],
 	"author": "Roman Melamud",
 	"license": "MIT",
+	"keywords": [
+		"typescript",
+		"paths",
+		"types",
+		"type-checks",
+		"aliases",
+		"resolver",
+		"resolution",
+		"webpack"
+	],
 	"dependencies": {
 		"fork-ts-checker-webpack-plugin": "latest",
 		"node-abort-controller": "latest",

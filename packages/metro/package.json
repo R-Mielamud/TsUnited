@@ -22,6 +22,18 @@
 	],
 	"author": "Roman Melamud",
 	"license": "MIT",
+	"keywords": [
+		"typescript",
+		"paths",
+		"types",
+		"type-checks",
+		"aliases",
+		"resolver",
+		"resolution",
+		"metro",
+		"react",
+		"react-native"
+	],
 	"dependencies": {
 		"metro-resolver": "latest",
 		"tsconfig-paths": "latest"
