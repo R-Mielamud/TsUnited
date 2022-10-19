@@ -15,7 +15,7 @@ const TS_UNITED_CONFIG = {
 		This option is required.
 		*/
 		name: 'react-native-mobile',
-		/* The path tsconfig.json file is located in, or any child path.
+		/* The path tsconfig.json file is located in or any child path.
 		Importing files that are outside all projects' paths is forbidden.
 		The path can be absolute or relative to CWD
 		This option is required.

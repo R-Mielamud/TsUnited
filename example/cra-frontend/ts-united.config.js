@@ -16,7 +16,8 @@ module.exports = {
 	This option is not required. Default value - the directory config file is located in
 	*/
 	cwd: "../",
-	/* Array of extensions TS United must allow to import
+	/* Array of extensions path aliases will be implicitly resolved to.
+	For example, here `~/myfile` can become either `./myfile.ts` or `./myfile.tsx`.
 	This option is not required. Default value - [".js", ".jsx", ".ts", ".tsx", ".json"]
 	*/
 	extensions: [".ts", ".tsx"],
@@ -28,7 +29,7 @@ module.exports = {
 		This option is required.
 		*/
 		name: "cra-frontend",
-		/* The path tsconfig.json file is located in, or any child path.
+		/* The path tsconfig.json file is located in or any child path.
 		Importing files that are outside all projects' paths is forbidden.
 		The path can be absolute or relative to CWD
 		This option is required.
@@ -36,7 +37,7 @@ module.exports = {
 		Here CWD is set to example folder, cra-frontend project is in example/cra-frontend, so it's path will be ./cra-frontend
 		*/
 		path: "./cra-frontend",
-		/* Array of extensions TS United must allow *this project* to import
+		/* Array of extensions path aliases *of this project* will be implicitly resolved to.
 		This option is not required. Default value - the top-level `extensions` options
 		*/
 		extensions: [".ts", ".tsx"], // Set to default value

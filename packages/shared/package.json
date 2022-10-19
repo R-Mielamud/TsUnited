@@ -1,6 +1,7 @@
 {
 	"name": "@ts-united/shared",
 	"version": "1.0.0",
+	"description": "Common code, used in all editions of Ts United.",
 	"private": true,
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"

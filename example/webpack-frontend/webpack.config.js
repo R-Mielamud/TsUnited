@@ -18,7 +18,8 @@ const TS_UNITED_CONFIG = {
 	This option is not required. Default value - process.cwd()
 	*/
 	cwd: "../",
-	/* Array of extensions TS United must allow to import
+	/* Array of extensions path aliases will be implicitly resolved to.
+	For example, here `~/myfile` can become either `./myfile.ts` or `./myfile.tsx`.
 	This option is not required. Default value - [".js", ".jsx", ".ts", ".tsx", ".json"]
 	*/
 	extensions: [".ts", ".tsx"],
@@ -31,7 +32,7 @@ const TS_UNITED_CONFIG = {
 			This option is required.
 			*/
 			name: "webpack-frontend",
-			/* The path tsconfig.json file is located in, or any child path.
+			/* The path tsconfig.json file is located in or any child path.
 			Importing files that are outside all projects' paths is forbidden.
 			The path can be absolute or relative to CWD
 			This option is required.
@@ -39,7 +40,7 @@ const TS_UNITED_CONFIG = {
 			Here CWD is set to example folder, webpack-frontend project is in example/webpack-frontend, so it's path will be ./webpack-frontend
 			*/
 			path: "./webpack-frontend",
-			/* Array of extensions TS United must allow *this project* to import
+			/* Array of extensions path aliases *of this project* will be implicitly resolved to.
 			This option is not required. Default value - the top-level `extensions` options
 			*/
 			extensions: [".ts", ".tsx"], // Set to default value

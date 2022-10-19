@@ -1,7 +1,7 @@
 {
 	"name": "ts-united",
 	"version": "0.0.0",
-	"description": "Top-level package.json of the TS United project. Contains scripts used in development",
+	"description": "Top-level package.json of the TS United project. Contains scripts used in development.",
 	"private": true,
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",

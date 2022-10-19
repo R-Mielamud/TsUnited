@@ -29,7 +29,7 @@ Also, you can see that the `~shared` path alias in [tsconfig.json](https://githu
 
     ```
     {
-    	"text": "<your todo text>"
+        "text": "<your todo text>"
     }
     ```
 
@@ -37,9 +37,9 @@ Also, you can see that the `~shared` path alias in [tsconfig.json](https://githu
 
     ```
     {
-    	"id": <number, id of your todo>,
-    	"done": false,
-    	"text": "<your todo text>"
+        "id": <number, id of your todo>,
+        "done": false,
+        "text": "<your todo text>"
     }
     ```
 
@@ -51,7 +51,7 @@ Also, you can see that the `~shared` path alias in [tsconfig.json](https://githu
 
     ```
     {
-    	"done": <boolean, mark todo as done or not done>
+        "done": <boolean, mark todo as done or not done>
     }
     ```
 
@@ -59,9 +59,9 @@ Also, you can see that the `~shared` path alias in [tsconfig.json](https://githu
 
     ```
     {
-      	"id": <id of your todo>,
-      	"done": <the value you sent>,
-      	"text": "<your todo text>"
+          "id": <id of your todo>,
+          "done": <the value you sent>,
+          "text": "<your todo text>"
     }
     ```
 
@@ -73,11 +73,11 @@ Also, you can see that the `~shared` path alias in [tsconfig.json](https://githu
 
     ```
     [
-    	{
-    		"id": <id of todo>,
-    		"done": <done or not>,
-    		"text": "<todo text>"
-    	},
-    	...other todos
+        {
+            "id": <id of todo>,
+            "done": <done or not>,
+            "text": "<todo text>"
+        },
+        ...other todos
     ]
     ```

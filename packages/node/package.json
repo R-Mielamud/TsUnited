@@ -1,7 +1,7 @@
 {
 	"name": "@ts-united/node",
 	"version": "1.0.0",
-	"description": "",
+	"description": "Helps one TypeScript project (folder containing a tsconfig.json file) import TypeScript/JavaScript code from any other project, while checking each project's code and resolving imports in each project using that project's tsconfig.json.",
 	"main": "dist/runtime/index.js",
 	"bin": {
 		"tsu-node": "./dist/exposed-bin/tsu-node.js",
