@@ -70,7 +70,9 @@ module.exports = {
 
 ---
 
-That's all! Now your project uses TS United!
+That's all! Now your project uses TS United! Import files from other projects and then run `npm run android` and `npm run ios` as usual.
+
+**Tip:** Any project can import any other project, listed in config file. Related projects can import each other and can import root project (importing root project from related projects is not recommended).
 
 **Also you can see a complete example project on GitHub:** [https://github.com/R-Mielamud/TsUnited/tree/main/example/react-native-mobile](https://github.com/R-Mielamud/TsUnited/tree/main/example/react-native-mobile)
 
