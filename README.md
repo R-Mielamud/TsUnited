@@ -18,9 +18,9 @@ TS United helps one TypeScript project (folder containing a `tsconfig.json` file
 
 Sounds great? **Choose the edition that you need:**
 
--   **@ts-united/node** - compatible with NodeJS runtimes (e.g. NodeJS, Mocha testing framework). Handles both running and building your code.
--   **@ts-united/webpack** - compatible with Webpack and frontend frameworks that use it (e.g. Angular, Vue).
--   **@ts-united/cra** - is a wrapper for Webpack edition, which allows you to use it in Create React App projects without ejecting.
--   **@ts-united/metro** - compatible with Metro bundler, which is used in React Native projects.
+-   [**@ts-united/node**](https://www.npmjs.com/package/@ts-united/node) - compatible with NodeJS runtimes (e.g. NodeJS, Mocha testing framework). Handles both running and building your code.
+-   [**@ts-united/webpack**](https://www.npmjs.com/package/@ts-united/webpack) - compatible with Webpack and frontend frameworks that use it (e.g. Angular, Vue).
+-   [**@ts-united/cra**](https://www.npmjs.com/package/@ts-united/cra) - is a wrapper for Webpack edition, which allows you to use it in Create React App projects without ejecting.
+-   [**@ts-united/metro**](https://www.npmjs.com/package/@ts-united/metro) - compatible with Metro bundler, which is used in React Native projects.
 
 If you need some good usage examples, check out the [example](https://github.com/R-Mielamud/TsUnited/tree/main/example) folder
