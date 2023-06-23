@@ -5,7 +5,10 @@ import { Config, Project, ProjectTools } from "~/common";
 import { createPathResolver } from "./resolver";
 
 export const getProjectTools = (project: Project): ProjectTools => {
-	const service = createTsNodeService({ cwd: project.path });
+	const service = createTsNodeService({
+		cwd: project.path,
+		files: project.loadAllFiles,
+	});
 
 	const { baseUrl, paths } = service.config.options;
 	const resolver = createPathResolver(baseUrl ?? project.path, paths ?? {});

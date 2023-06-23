@@ -113,10 +113,11 @@ server.start();
 
 ### <a id="project-schema"></a>Project schema
 
-| Option | Data type        | Default value | Description                                                                                                                                                                  |
-| ------ | ---------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name` | `string, unique` |               | Any **unique** project name (id).                                                                                                                                            |
-| `path` | `string(path)`   |               | The path tsconfig.json file is located in or any child path. Importing files that are outside all projects' paths is forbidden. The path can be absolute or relative to CWD. |
+| Option         | Data type        | Default value | Description                                                                                                                                                                                                                                                                                                              |
+| -------------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `name`         | `string, unique` |               | Any **unique** project name (id).                                                                                                                                                                                                                                                                                        |
+| `path`         | `string(path)`   |               | The path tsconfig.json file is located in or any child path. Importing files that are outside all projects' paths is forbidden. The path can be absolute or relative to CWD.                                                                                                                                             |
+| `loadAllFiles` | `boolean?`       | `false`       | By default project files are loaded only if they're referenced from other files. Because of this global types (`.d.ts` files) can be lost. With `loadAllFiles: true` TS United will preload all project files including global types according to `files`, `include` and `exclude` options of a project's tsconfig.json. |
 
 **Example folder structure and config:**
 

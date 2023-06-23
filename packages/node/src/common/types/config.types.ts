@@ -1,6 +1,8 @@
 import { BaseProject, Tsconfig } from "~/common";
 
-export interface Project extends BaseProject {}
+export interface Project extends BaseProject {
+	loadAllFiles?: boolean;
+}
 
 export interface ProjectWithTsconfig extends Project {
 	tsconfig: Tsconfig;

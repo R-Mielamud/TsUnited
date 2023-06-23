@@ -15,6 +15,10 @@ export const projectSchema: Schema = {
 			required: true,
 			minLength: 1,
 		},
+		loadAllFiles: {
+			type: "boolean",
+			required: false,
+		},
 	},
 };
 
